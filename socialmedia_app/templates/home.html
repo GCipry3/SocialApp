@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for post in posts.items %}
-        <!-- TODO: make home.html prettier , and post.html , and user_posts.html-->
         <div class="card d-flex flex-row justify-content-start mb-3">
             <div class="border-end mx-2 my-2">
                 <img class="rounded-circle article-img" src="{{ url_for('static',filename='profile_pics/'+post.author.image_file) }}">
