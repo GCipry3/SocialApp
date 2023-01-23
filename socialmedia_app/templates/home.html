@@ -2,15 +2,17 @@
 {% block content %}
     {% for post in posts.items %}
         <!-- TODO: make home.html prettier , and post.html , and user_posts.html-->
-        <div class="card d-flex flex-row justify-content-start w-75 my-3">
-            <img class="rounded-circle article-img mx-2 my-2" src="https://picsum.photos/75">
-            <div class="">
-                <div class="d-flex flex-row">
+        <div class="card d-flex flex-row justify-content-start mb-3">
+            <div class="border-end mx-2 my-2">
+                <img class="rounded-circle article-img" src="{{ url_for('static',filename='profile_pics/'+post.author.image_file) }}">
+            </div>
+            <div class="w-100">
+                <div class="d-flex flex-row border-bottom">
                     <a class="mr-2" href="{{url_for('user_posts',username=post.author.username)}}">{{ post.author.username}}</a>
                     <small class="ps-2 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
-                </div><hr>
-                <h2><a href="{{ url_for('post',post_id=post.id) }}">{{ post.title }}</a></h2>
-                <p>{{ post.content }}</p>
+                </div>
+                <h2><a class="post-title" href="{{ url_for('post',post_id=post.id) }}">{{ post.title }}</a></h2>
+                <p class="mt-2">{{ post.content }}</p>
             </div>
         </div>
     {% endfor %}

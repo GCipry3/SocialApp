@@ -1,5 +1,5 @@
 {% macro displayFormField(field) %}
-    <div class="row mt-2">
+    <div class="row my-3">
         {{ field.label(class="col-lg-2 col-form-label") }}
         {% if field.errors %}
             <div class="col-lg-10">
@@ -13,6 +13,26 @@
         {% else %}
             <div class="col-lg-10">
                 {{ field(class="form-control") }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro displayFileFormField(field) %}
+    <div class="row my-3">
+        {{ field.label(class="col-lg-2 col-form-label") }}
+        {% if field.errors %}
+            <div class="col-lg-10">
+                {{ field(class="form-control-file is-invalid") }}
+            </div>
+            <div class="invalid-feedback">
+                {% for error in field.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="col-lg-10">
+                {{ field(class="form-control-file") }}
             </div>
         {% endif %}
     </div>
