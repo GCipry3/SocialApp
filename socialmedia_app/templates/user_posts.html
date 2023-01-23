@@ -4,7 +4,7 @@
     <h1 class="mn-3 text-center"> Posts by {{user.username}} ({{posts.total}})</h1>
     {% for post in posts.items %}
         <div class="card d-flex flex-row justify-content-start w-75 my-3">
-            <img class="rounded-circle article-img mx-2 my-2" src="https://picsum.photos/75"><hr>
+            <img class="rounded-circle article-img mx-2 my-2" src="{{url_for('static',filename='profile_pics/'+post.author.image_file)}}"><hr>
             <div class="">
                 <div class="d-flex flex-row">
                     <a class="mr-2" href="{{url_for('user_posts',username=post.author.username)}}">{{ post.author.username}}</a>
