@@ -1,0 +1,22 @@
+{% from 'form_helper.html' import displayFormField %}
+
+{% extends "layout.html"%}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="card col-lg-8">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="border-bottom mb-4">
+                <h2>New Post</h2>
+            </div>
+
+            {{ displayFormField(form.title) }}
+            {{ displayFormField(form.content) }}
+
+            <div class="my-3">
+                {{ form.submit(class="btn btn-outline-success") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
