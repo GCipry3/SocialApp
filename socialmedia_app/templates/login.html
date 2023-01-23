@@ -1,0 +1,25 @@
+{% from 'form_helper.html' import displayFormField %}
+
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="card col-lg-8">
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="border-bottom mb-4">
+                    <h2>Log In</h2>
+                </div>
+                
+                {{ displayFormField(form.email) }}
+                {{ displayFormField(form.password) }}
+
+                <div class="my-3">
+                    {{ form.submit(class="btn btn-outline-success") }}
+                    <small class="text-muted ms-3">
+                        Register here <a class="ms-1" href="{{ url_for('register') }}">Register</a>
+                    </small>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
